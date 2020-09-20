@@ -6,6 +6,8 @@ from pathlib import Path
 
 import click
 
+from choosem.emoji import read_character_files
+
 
 def choose(inp, index=False) -> Union[str, int]:
     """
@@ -35,9 +37,24 @@ def choose(inp, index=False) -> Union[str, int]:
 def main():
     pass
 
-@main.group()
-def yabai():
-    pass
+
+@main.command()
+def emoji():
+    emojis = read_character_files(['emojis'])
+    choice = choose(emojis)
+    choice = choice.split(' ', 1)[0]
+    script = f"""
+    set temp to the clipboard
+    set the clipboard to "{choice}"
+    tell application "System Events"
+        keystroke "v" using command down
+    end tell
+    delay 0.5
+    set the clipboard to temp
+    """
+    subprocess.run(f"""
+        osascript -e '{script}'
+    """, shell=True)
 
 
 @main.command()
@@ -53,7 +70,7 @@ def launch():
         subprocess.Popen(args)
 
 
-@yabai.command()
+@main.command()
 def focus():
     """focus a window by selection"""
     # Use a breakpoint in the code line below to debug your script.
