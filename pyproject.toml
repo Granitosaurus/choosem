@@ -4,15 +4,25 @@ version = "0.1.0"
 description = "dropdown picker/launcher for macos"
 authors = ["Bernardas Alisauskas <bernardas.alisauskas@pm.me>"]
 license = "GPL-3.0-or-later"
+readme = "README.md"
+homepage = "https://github.com/Granitosaurus/choosem"
+repository = "https://github.com/Granitosaurus/choosem"
+keywords = ['macos', 'chooser', 'picker', 'launcher']
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Topic :: Utilities",
+]
+
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.6"
 click = "^7.1.2"
 
 [tool.poetry.dev-dependencies]
 
 [tool.poetry.scripts]
-choosem = 'choosem.cli:main'
+choosem = 'choosem.main:main'
 
 [build-system]
 requires = ["poetry>=0.12"]
