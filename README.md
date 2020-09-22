@@ -4,9 +4,9 @@
 Currently these functionalities are available:
 
 * Insert select character from character dictionaries
-![input](./screenshots/choose-input.png)
+![input](./screenshots/choosem-insert.gif)
 * Focus window/space in [Yabai] wm:
-![focus](./screenshots/choose-focus.png)
+![focus](./screenshots/choosem-focus.gif)
 * Launch programs
 
 # install
